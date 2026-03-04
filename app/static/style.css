@@ -1,0 +1,134 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    background: linear-gradient(135deg, #1f3c88, #29539b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+    background: #ffffff;
+    width: 95%;
+    max-width: 850px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* ===== HEADING ===== */
+h1 {
+    text-align: center;
+    color: #1f3c88;
+    margin-bottom: 25px;
+}
+
+/* ===== FORM GRID ===== */
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+/* ===== INPUT + SELECT ===== */
+input,
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+/* ===== FOCUS EFFECT ===== */
+input:focus,
+select:focus {
+    border-color: #29539b;
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px rgba(41, 83, 155, 0.4);
+}
+
+/* ===== PLACEHOLDER COLOR ===== */
+input::placeholder {
+    color: #666;
+    font-size: 13px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    grid-column: span 2;
+    padding: 12px;
+    background: #29539b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #1f3c88;
+}
+
+/* ===== RESULT BOX ===== */
+.result {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Normal Traffic */
+.normal {
+    background-color: #e6f9ec;
+    color: #1e7e34;
+    border: 1px solid #1e7e34;
+}
+
+/* Attack Traffic */
+.attack {
+    background-color: #fdeaea;
+    color: #b02a37;
+    border: 1px solid #b02a37;
+}
+
+/* ===== SCROLLBAR STYLE ===== */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #29539b;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: span 1;
+    }
+}

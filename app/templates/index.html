@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI IDS System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>AI-Based Intrusion Detection System</h2>
+
+   <form action="/predict" method="post">
+
+    <!-- 1 Duration -->
+    <input type="number" step="any" name="f1" placeholder="duration" required>
+
+    <!-- 2 Protocol -->
+    <select name="f2" required>
+        <option value="">Select Protocol</option>
+        <option value="0">TCP</option>
+        <option value="1">UDP</option>
+        <option value="2">ICMP</option>
+    </select>
+
+    <!-- 3 Service -->
+    <select name="f3" required>
+        <option value="">Select Service</option>
+        <option value="0">HTTP</option>
+        <option value="1">FTP</option>
+        <option value="2">SMTP</option>
+        <option value="3">TELNET</option>
+    </select>
+
+    <!-- 4 Flag -->
+    <select name="f4" required>
+        <option value="">Select Flag</option>
+        <option value="0">SF</option>
+        <option value="1">S0</option>
+        <option value="2">REJ</option>
+        <option value="3">RSTR</option>
+    </select>
+
+    <!-- 5–40 Real Feature Names -->
+
+    <input type="number" step="any" name="f5" placeholder="src_bytes" required>
+    <input type="number" step="any" name="f6" placeholder="dst_bytes" required>
+    <input type="number" step="any" name="f7" placeholder="land" required>
+    <input type="number" step="any" name="f8" placeholder="wrong_fragment" required>
+    <input type="number" step="any" name="f9" placeholder="urgent" required>
+    <input type="number" step="any" name="f10" placeholder="hot" required>
+
+    <input type="number" step="any" name="f11" placeholder="num_failed_logins" required>
+    <input type="number" step="any" name="f12" placeholder="logged_in" required>
+    <input type="number" step="any" name="f13" placeholder="num_compromised" required>
+    <input type="number" step="any" name="f14" placeholder="root_shell" required>
+    <input type="number" step="any" name="f15" placeholder="su_attempted" required>
+    <input type="number" step="any" name="f16" placeholder="num_root" required>
+    <input type="number" step="any" name="f17" placeholder="num_file_creations" required>
+    <input type="number" step="any" name="f18" placeholder="num_shells" required>
+    <input type="number" step="any" name="f19" placeholder="num_access_files" required>
+    <input type="number" step="any" name="f20" placeholder="num_outbound_cmds" required>
+
+    <input type="number" step="any" name="f21" placeholder="is_host_login" required>
+    <input type="number" step="any" name="f22" placeholder="is_guest_login" required>
+    <input type="number" step="any" name="f23" placeholder="count" required>
+    <input type="number" step="any" name="f24" placeholder="srv_count" required>
+    <input type="number" step="any" name="f25" placeholder="serror_rate" required>
+    <input type="number" step="any" name="f26" placeholder="srv_serror_rate" required>
+    <input type="number" step="any" name="f27" placeholder="rerror_rate" required>
+    <input type="number" step="any" name="f28" placeholder="srv_rerror_rate" required>
+    <input type="number" step="any" name="f29" placeholder="same_srv_rate" required>
+    <input type="number" step="any" name="f30" placeholder="diff_srv_rate" required>
+
+    <input type="number" step="any" name="f31" placeholder="srv_diff_host_rate" required>
+    <input type="number" step="any" name="f32" placeholder="dst_host_count" required>
+    <input type="number" step="any" name="f33" placeholder="dst_host_srv_count" required>
+    <input type="number" step="any" name="f34" placeholder="dst_host_same_srv_rate" required>
+    <input type="number" step="any" name="f35" placeholder="dst_host_diff_srv_rate" required>
+    <input type="number" step="any" name="f36" placeholder="dst_host_same_src_port_rate" required>
+    <input type="number" step="any" name="f37" placeholder="dst_host_srv_diff_host_rate" required>
+    <input type="number" step="any" name="f38" placeholder="dst_host_serror_rate" required>
+    <input type="number" step="any" name="f39" placeholder="dst_host_srv_serror_rate" required>
+    <input type="number" step="any" name="f40" placeholder="dst_host_rerror_rate" required>
+
+    <button type="submit">Predict</button>
+</form>
+
+    {% if prediction_text %}
+        <div class="result">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
