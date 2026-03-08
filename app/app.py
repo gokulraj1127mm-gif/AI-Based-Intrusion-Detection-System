@@ -5,7 +5,13 @@ import os
 
 app = Flask(__name__)
 
-MODEL_PATH = os.path.join("..", "models", "trained_model.pkl")
+# Get project root directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Correct model path
+MODEL_PATH = os.path.join(BASE_DIR, "models", "trained_model.pkl")
+
+# Load model
 model = joblib.load(MODEL_PATH)
 
 @app.route("/")
@@ -15,7 +21,7 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
-        # Get 40 features in correct order
+        # Get 40 features
         features = [float(value) for value in request.form.values()]
         features_array = np.array(features).reshape(1, -1)
 
